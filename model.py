@@ -10,12 +10,16 @@ class Pmodel(object):
         self.time = time()
 
     def smart_return(self, result):
-        match result:
-            case np.inf: return "overflow +inf", time()-self.time
-            # case : return "overflow -inf", time() - self.time
-            case 0.0: return "overflow 0.0", time()-self.time
-            case -0.0: return "overflow -0.0", time() - self.time
-            case _: return result, time()-self.time
+        if result == -np.inf:
+            return "overflow -inf", time() - self.time
+        elif result == np.inf:
+            return "overflow +inf", time()-self.time
+        elif result == 0.0:
+            return "overflow 0.0", time()-self.time
+        elif result == -0.0:
+            return "overflow -0.0", time() - self.time
+        else:
+            return result, time()-self.time
 
     def sum_array(self):
         return self.smart_return(np.sum(self.array))
