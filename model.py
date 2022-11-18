@@ -9,14 +9,22 @@ class Pmodel(object):
             case "float": self.array = np.random.uniform(minvalue, maxvalue, size=(1, amount))
         self.time = time()
 
+    def smart_return(self, result):
+        match result:
+            case np.inf: return "overflow +inf", time()-self.time
+            # case : return "overflow -inf", time() - self.time
+            case 0.0: return "overflow 0.0", time()-self.time
+            case -0.0: return "overflow -0.0", time() - self.time
+            case _: return result, time()-self.time
+
     def sum_array(self):
-        return np.sum(self.array), time()-self.time
+        return self.smart_return(np.sum(self.array))
 
     def diff_array(self):
-        return -1 * self.sum_array()[0], time()-self.time
+        return self.smart_return(-1 * np.sum(self.array))
 
     def mult_array(self):
-        return np.prod(self.array), time()-self.time
+        return self.smart_return(np.prod(self.array))
 
     def div_array(self):
-        return 1 / self.mult_array()[0], time()-self.time
+        return self.smart_return(1 / np.prod(self.array))
