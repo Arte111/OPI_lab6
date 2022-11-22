@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>743</width>
+    <height>552</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMaximumSize</enum>
+      </property>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Массив</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="mainMass">
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>16777215</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Тип переменных</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="typeVar">
+            <item>
+             <property name="text">
+              <string>int</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>float</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Тип операции</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="typeAct">
+            <item>
+             <property name="text">
+              <string>Сложение</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Вычитание</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Умножение</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Деление</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>sin</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>cos</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>tan</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>min</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="min">
+            <property name="minimum">
+             <number>-999999999</number>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>max</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="max">
+            <property name="minimum">
+             <number>-999999999</number>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Количество</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="many">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QPushButton" name="createB">
+            <property name="text">
+             <string>Создать</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QListWidget" name="logs"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="clear">
+        <property name="text">
+         <string>Очистить</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>743</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
