@@ -5,9 +5,9 @@ import numpy as np
 class Pmodel(object):
     def __init__(self, array_type="int", amount=None, minvalue=None, maxvalue=None):
         if array_type == "int":
-            self.array = np.random.randint(minvalue, maxvalue, size=(1, amount))
+            self.array = np.random.randint(minvalue, maxvalue, size=(1, amount)).astype(np.int64)
         elif array_type == "float":
-            self.array = np.random.uniform(minvalue, maxvalue, size=(1, amount))
+            self.array = np.random.uniform(minvalue, maxvalue, size=(1, amount)).astype(np.float32)
 
         self.time = time()
         self.work_time = 0
