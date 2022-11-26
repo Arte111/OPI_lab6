@@ -3,12 +3,21 @@ import numpy as np
 
 
 class Pmodel(object):
-    def __init__(self, array_type="int", amount=None, minvalue=None, maxvalue=None):
+    def __init__(self, data_collector='array', array_type="int", amount=None, minvalue=None, maxvalue=None):
         if array_type == "int":
             self.array = np.random.randint(minvalue, maxvalue, size=(1, amount)).astype(np.int64)
+            self.array[0][0] = np.int64(maxvalue)  # input max value
         elif array_type == "float":
             self.array = np.random.uniform(minvalue, maxvalue, size=(1, amount)).astype(np.float32)
+            self.array[0][0] = np.float32(maxvalue)  # input max value
+        elif array_type == "double":
+            self.array = np.random.uniform(minvalue, maxvalue, size=(1, amount)).astype(np.double)
+            self.array[0][0] = np.double(maxvalue)  # input max value
 
+        if data_collector == 'unique':
+            self.array = np.unique(self.array)  # make unique from array
+
+        self.data_collector = data_collector
         self.time = time()
         self.work_time = 0
 
@@ -59,4 +68,7 @@ class Pmodel(object):
 
     """ Function for all """
     def get_array(self):
-        return self.__dict__["array"][0]
+        if self.data_collector == 'array':
+            return self.__dict__["array"][0]
+        elif self.data_collector == 'unique':
+            return self.__dict__["array"]
