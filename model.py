@@ -4,6 +4,7 @@ import numpy as np
 
 class Pmodel(object):
     def __init__(self, data_collector='array', array_type="int", amount=None, minvalue=None, maxvalue=None):
+        self.time = time()
         if array_type == "int":
             self.array = np.random.randint(minvalue, maxvalue, size=(1, amount)).astype(np.int64)
             self.array[0][0] = np.int64(maxvalue)  # input max value
@@ -18,7 +19,6 @@ class Pmodel(object):
             self.array = np.unique(self.array)  # make unique from array
 
         self.data_collector = data_collector
-        self.time = time()
         self.work_time = 0
 
     """ Functions for arithmetic """

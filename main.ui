@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>743</width>
-    <height>552</height>
+    <width>668</width>
+    <height>636</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Массив</string>
+         <string>Множество</string>
         </property>
        </widget>
       </item>
@@ -43,6 +43,31 @@
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Тип множества</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="collectionType">
+            <item>
+             <property name="text">
+              <string>array</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>unique</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
@@ -209,7 +234,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>743</width>
+     <width>668</width>
      <height>21</height>
     </rect>
    </property>
