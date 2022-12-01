@@ -6,7 +6,7 @@ class Pmodel(object):
     def __init__(self, data_collector='array', array_type="int", amount=None, minvalue=None, maxvalue=None):
         self.arr_time = time()
         if array_type == "int":
-            self.array = np.random.randint(minvalue, maxvalue, size=(1, amount)).astype(np.int64)
+            self.array = np.random.randint(minvalue, maxvalue, size=(1, amount), dtype=np.int64)
             self.array[0][0] = np.int64(maxvalue)  # input max value
         elif array_type == "float":
             self.array = np.random.uniform(minvalue, maxvalue, size=(1, amount)).astype(np.float32)
