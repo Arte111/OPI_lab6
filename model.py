@@ -7,19 +7,19 @@ class Pmodel(object):
         self.arr_time = time()
         if array_type == "int":
             self.array = np.random.randint(minvalue, maxvalue, size=(1, amount), dtype=np.int64)
-            self.array[0][0] = np.int64(maxvalue)  # input max value
+            # self.array[0][0] = np.int64(maxvalue)  # input max value
         elif array_type == "float":
             self.array = np.random.uniform(minvalue, maxvalue, size=(1, amount)).astype(np.float32)
-            self.array[0][0] = np.float32(maxvalue)  # input max value
+            # self.array[0][0] = np.float32(maxvalue)  # input max value
         elif array_type == "double":
             self.array = np.random.uniform(minvalue, maxvalue, size=(1, amount)).astype(np.double)
-            self.array[0][0] = np.double(maxvalue)  # input max value
+            # self.array[0][0] = np.double(maxvalue)  # input max value
 
-        if data_collector == 'unique':
-            self.array = np.unique(self.array)  # make unique from array
+        '''if data_collector == 'unique':
+            self.array = np.unique(self.array)  # make unique from array'''
 
         self.time = time()
-        self.data_collector = data_collector
+        '''self.data_collector = data_collector'''
         self.work_time = 0
 
     """ Functions for arithmetic """
@@ -34,9 +34,7 @@ class Pmodel(object):
         elif result == np.inf:
             return "overflow +inf", self.work_time, self.arr_time
         elif result == 0.0:
-            return "overflow 0.0", self.work_time, self.arr_time
-        elif result == -0.0:
-            return "overflow -0.0", self.work_time, self.arr_time
+            return "overflow", self.work_time, self.arr_time
         else:
             return result, self.work_time, self.arr_time
 
@@ -47,7 +45,7 @@ class Pmodel(object):
         return self.smart_return(-1 * np.sum(self.array))
 
     def mult_array(self):
-        return self.smart_return(np.prod(self.array))
+        return self.smart_return(np.prod([x[x != 0].tolist() for x in self.array]))
 
     def div_array(self):
         return self.smart_return(1 / np.prod(self.array))
@@ -73,7 +71,14 @@ class Pmodel(object):
     """ Function for all """
 
     def get_array(self):
-        if self.data_collector == 'array':
+        '''if self.data_collector == 'array':
             return self.__dict__["array"][0]
         elif self.data_collector == 'unique':
-            return self.__dict__["array"]
+            return self.__dict__["array"]'''
+        return self.__dict__["array"][0]
+
+    def get_min(self):
+        return self.array.min()
+
+    def get_max(self):
+        return self.array.max()
