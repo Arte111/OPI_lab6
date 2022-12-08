@@ -23,23 +23,34 @@ class Main(QMainWindow):
             self.mainMass.clear()
             start_gui_draw = time.time()
             array = massObj.get_array()
-            for elem in array:
-                self.mainMass.addItem(str(elem))
+            if len(array) > 100000 and self.mode.currentText() == "Укороченный режим":
+                maxi = 100000
+            else:
+                maxi = len(array)
+            for i in range(maxi):
+                self.mainMass.addItem(str(array[i]))
             end_gui_draw = time.time() - start_gui_draw
             if self.typeAct.currentText() == "Сложение":
-                self.logs.addItem(f"Значение: {massObj.sum_array()[0]}\tВремя: {massObj.sum_array()[1]} Время отрисовки: {end_gui_draw}")
+                result = massObj.sum_array()
+                self.logs.addItem(f"Значение: {result[0]}\tВремя: {result[1] + result[2]}")
             if self.typeAct.currentText() == "Вычитание":
-                self.logs.addItem(f"Значение: {massObj.diff_array()[0]}\tВремя: {massObj.diff_array()[1]} Время отрисовки: {end_gui_draw}")
+                result = massObj.diff_array()
+                self.logs.addItem(f"Значение: {result[0]}\tВремя: {result[1] + result[2]}")
             if self.typeAct.currentText() == "Умножение":
-                self.logs.addItem(f"Значение: {massObj.mult_array()[0]}\tВремя: {massObj.mult_array()[1]} Время отрисовки: {end_gui_draw}")
+                result = massObj.mult_array()
+                self.logs.addItem(f"Значение: {result[0]}\tВремя: {result[1] + result[2]}")
             if self.typeAct.currentText() == "Деление":
-                self.logs.addItem(f"Значение: {massObj.div_array()[0]}\tВремя: {massObj.div_array()[1]} Время отрисовки: {end_gui_draw}")
+                result = massObj.div_array()
+                self.logs.addItem(f"Значение: {result[0]}\tВремя: {result[1] + result[2]}")
             if self.typeAct.currentText() == "sin":
-                self.logs.addItem(f"Время: {massObj.sin_array()} Время отрисовки: {end_gui_draw}")
+                result = massObj.sin_array()
+                self.logs.addItem(f"Время: {result}")
             if self.typeAct.currentText() == "cos":
-                self.logs.addItem(f"Время: {massObj.cos_array()} Время отрисовки: {end_gui_draw}")
+                result = massObj.cos_array()
+                self.logs.addItem(f"Время: {result}")
             if self.typeAct.currentText() == "tan":
-                self.logs.addItem(f"Время: {massObj.tan_array()} Время отрисовки: {end_gui_draw}")
+                result = massObj.tan_array()
+                self.logs.addItem(f"Время: {result}")
 
     def clear_func(self):
         self.logs.clear()

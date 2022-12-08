@@ -37,6 +37,20 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QComboBox" name="mode">
+        <item>
+         <property name="text">
+          <string>Укороченный режим</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Полный режим</string>
+         </property>
+        </item>
+       </widget>
+      </item>
      </layout>
     </item>
     <item>
