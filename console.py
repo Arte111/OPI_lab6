@@ -9,6 +9,6 @@ t = "int"
 file = save("logs/int_sum.xlsx")
 
 for i in range(epoch):
-    res = model('array', t, amount, mi, ma).sum_array()
+    res = model(t, amount, mi, ma).sum_array()
     print(res)
     file.add_on_top([mi, ma, amount, res[0], res[1], res[2]])
