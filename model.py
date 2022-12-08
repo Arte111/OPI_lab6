@@ -60,19 +60,19 @@ class Pmodel(object):
         self.work_time = time()
         # return np.sin(self.array)[0].tolist(), time()-self.time
         np.sin(self.array)
-        return time() - self.work_time
+        return time() - self.work_time, self.arr_time
 
     def cos_array(self):
         self.work_time = time()
         # return np.cos(self.array)[0].tolist(), time()-self.time
         np.cos(self.array)
-        return time() - self.work_time
+        return time() - self.work_time, self.arr_time
 
     def tan_array(self):
         self.work_time = time()
         # return np.tan(self.array)[0].tolist(), time()-self.time
         np.tan(self.array)
-        return time() - self.work_time
+        return time() - self.work_time, self.arr_time
 
     """ Function for all """
 
