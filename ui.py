@@ -16,7 +16,6 @@ class Main(QMainWindow):
     def create_func(self):
         if self.min.value() < self.max.value():
             massObj = model(array_type=self.typeVar.currentText(),
-                            data_collector=self.collectionType.currentText(),
                             amount=int(self.many.value()), 
                             minvalue=int(self.min.value()), 
                             maxvalue=int(self.max.value()))

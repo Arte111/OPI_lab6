@@ -44,29 +44,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_8">
-          <item>
-           <widget class="QLabel" name="label_7">
-            <property name="text">
-             <string>Тип множества</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="collectionType">
-            <item>
-             <property name="text">
-              <string>array</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>unique</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
+         <layout class="QVBoxLayout" name="verticalLayout_8"/>
         </item>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -153,12 +131,12 @@
            </widget>
           </item>
           <item>
-           <widget class="QSpinBox" name="min">
+           <widget class="QDoubleSpinBox" name="min">
             <property name="minimum">
-             <number>-999999999</number>
+             <double>-999999999.000000000000000</double>
             </property>
             <property name="maximum">
-             <number>999999999</number>
+             <double>999999999.000000000000000</double>
             </property>
            </widget>
           </item>
@@ -170,12 +148,12 @@
            </widget>
           </item>
           <item>
-           <widget class="QSpinBox" name="max">
+           <widget class="QDoubleSpinBox" name="max">
             <property name="minimum">
-             <number>-999999999</number>
+             <double>-999999999.000000000000000</double>
             </property>
             <property name="maximum">
-             <number>999999999</number>
+             <double>999999999.000000000000000</double>
             </property>
            </widget>
           </item>
