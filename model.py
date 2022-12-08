@@ -17,18 +17,17 @@ class Pmodel(object):
 
         '''if data_collector == 'unique':
             self.array = np.unique(self.array)  # make unique from array'''
+        self.arr_time = time() - self.arr_time
 
-        self.time = time()
         '''self.data_collector = data_collector'''
-        self.work_time = 0
+        self.work_time = time()
 
     """ Functions for arithmetic """
 
     def smart_return(self, result):
         # return result (number) or error and work time
         # match-case DON'T work with -np.inf here, I don't know why
-        self.work_time = time() - self.time
-        self.arr_time = time() - self.arr_time
+        self.work_time = time() - self.work_time
         if result == -np.inf:
             return "overflow -inf", self.work_time, self.arr_time
         elif result == np.inf:
@@ -39,34 +38,41 @@ class Pmodel(object):
             return result, self.work_time, self.arr_time
 
     def sum_array(self):
+        self.work_time = time()
         return self.smart_return(np.sum(self.array))
 
     def diff_array(self):
+        self.work_time = time()
         return self.smart_return(-1 * np.sum(self.array))
 
     def mult_array(self):
+        self.work_time = time()
         return self.smart_return(np.prod([x[x != 0].tolist() for x in self.array]))
 
     def div_array(self):
+        self.work_time = time()
         return self.smart_return(1 / np.prod(self.array))
 
     """ Functions for trigonometry 
         return all array and time """
 
     def sin_array(self):
+        self.work_time = time()
         # return np.sin(self.array)[0].tolist(), time()-self.time
         np.sin(self.array)
-        return time() - self.time
+        return time() - self.work_time
 
     def cos_array(self):
+        self.work_time = time()
         # return np.cos(self.array)[0].tolist(), time()-self.time
         np.cos(self.array)
-        return time() - self.time
+        return time() - self.work_time
 
     def tan_array(self):
+        self.work_time = time()
         # return np.tan(self.array)[0].tolist(), time()-self.time
         np.tan(self.array)
-        return time() - self.time
+        return time() - self.work_time
 
     """ Function for all """
 
