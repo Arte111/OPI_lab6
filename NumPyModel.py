@@ -1,12 +1,11 @@
 from time import time
 import numpy as np
 
-
-class Pmodel(object):
+class NumPyModel(object):
     def __init__(self, array_type="int", amount=None, minvalue=None, maxvalue=None):
         self.arr_time = time()
         if array_type == "int":
-            self.array = np.random.randint(minvalue, maxvalue, size=(1, amount), dtype=np.int64)
+            self.array = np.random.randint(minvalue, maxvalue+1, size=(1, amount), dtype=np.int64)
             # self.array[0][0] = np.int64(maxvalue)  # input max value
         elif array_type == "float":
             self.array = np.random.uniform(minvalue, maxvalue, size=(1, amount)).astype(np.float32)
@@ -51,7 +50,7 @@ class Pmodel(object):
 
     def div_array(self):
         self.work_time = time()
-        return self.smart_return(1 / np.prod(self.array))
+        return self.smart_return(1 / np.prod([x[x != 0].tolist() for x in self.array]))
 
     """ Functions for trigonometry 
         return all array and time """
