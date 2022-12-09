@@ -8,9 +8,12 @@ from joblib import Parallel, delayed
 prec = 500
 getcontext().prec = prec
 
+choice_data = [i1 + i2 + i3 + i4 for i1 in '0123456789' for i2 in '0123456789' \
+               for i3 in '0123456789' for i4 in '0123456789']
+
 
 def dec_random(minimal, maximum):
-    s = str('0.' + ''.join(rd.choice('0123456789') for _ in range(prec)))
+    s = str('0.' + ''.join(rd.choice(choice_data) for _ in range(prec // 4)))
     return Decimal(minimal) + (Decimal(maximum) - Decimal(minimal)) * Decimal(s)
 
 
