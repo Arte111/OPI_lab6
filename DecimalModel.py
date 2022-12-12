@@ -7,15 +7,15 @@ from time import time
 from pprint import pprint
 import sys
 
-prec = 500
+prec = 308
 getcontext().prec = prec
 
 '''f = open('choice_data.txt', 'r')
 
 choice_data = [line.strip() for line in f]'''
 
-choice_data = [i1 + i2 + i3 + i4 for i1 in '0123456789' for i2 in '0123456789' \
-               for i3 in '0123456789' for i4 in '0123456789']
+choice_data = [i1 + i2 + i3 + i4 + i5 for i1 in '0123456789' for i2 in '0123456789' \
+               for i3 in '0123456789' for i4 in '0123456789' for i5 in '0123456789']
 
 
 # print(sys.getsizeof(dec_random(10, 100)))
@@ -23,7 +23,7 @@ choice_data = [i1 + i2 + i3 + i4 for i1 in '0123456789' for i2 in '0123456789' \
 
 def dec_random(data):
     # data = [minvalue, maxvalue]
-    s = str('0.' + ''.join(rd.choice(choice_data) for _ in range(prec//4)))
+    s = str('0.' + ''.join(rd.choice(choice_data) for _ in range(prec//5)))
     return Decimal(data[0]) + (Decimal(data[1]) - Decimal(data[0])) * Decimal(s)
 
 
@@ -52,6 +52,13 @@ class DecimalModel:
     def mult_array(self):
         self.work_time = time()
         return self.smart_return(prod(self.array))
+
+    def div_array(self):
+        self.work_time = time()
+        try:
+            return self.smart_return(prod(self.array)**-1)
+        except:
+            return "of"
 
     def get_array(self):
         return self.__dict__["array"]

@@ -78,7 +78,7 @@
             </item>
             <item>
              <property name="text">
-              <string>float</string>
+              <string>decimal</string>
              </property>
             </item>
            </widget>
@@ -114,21 +114,6 @@
             <item>
              <property name="text">
               <string>Деление</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>sin</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>cos</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>tan</string>
              </property>
             </item>
            </widget>
