@@ -4,7 +4,7 @@ from PyQt5.QtGui import *
 import sys
 import time
 
-from controller import model, intmodel
+from controller import model, numPyModel
 
 
 class Main(QMainWindow):
@@ -20,9 +20,10 @@ class Main(QMainWindow):
                 massObj = model(array_type=self.typeVar.currentText(),
                                 amount=int(self.many.value()), 
                                 minvalue=int(self.min.value()), 
-                                maxvalue=int(self.max.value()))
+                                maxvalue=int(self.max.value()),
+                                prec=self.signsAmount.value())
             else:
-                massObj = intmodel(array_type=self.typeVar.currentText(),
+                massObj = numPyModel(array_type=self.typeVar.currentText(),
                                 amount=int(self.many.value()), 
                                 minvalue=int(self.min.value()), 
                                 maxvalue=int(self.max.value()))

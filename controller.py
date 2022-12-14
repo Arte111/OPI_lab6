@@ -5,5 +5,5 @@ from save import Saver
 
 # model = NumPyModel
 model = DecimalModel
-intmodel = NumPyModel
+numPyModel = NumPyModel
 save = Saver  # Saver(path to file).add_on_top(massive)
